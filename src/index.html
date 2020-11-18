@@ -2,12 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>MdbAngularProject</title>
+  <title>Mdb Angular Project vers. 1.0</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
 </head>
 <body>
   <app-root></app-root>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+  </script>
+  <script>
+    $(window).on("load", function(){
+      HeaderVideo.init({
+        container: $('.header-video'),
+        header: $('.header-video--media'),
+        videoTrigger: $('#video-trigger'),
+        autoPlayVideo: true
+      });
+
+      (function ($) {
+
+        "use strict";
+
+// Lazy load
+        var lazyLoadInstance = new LazyLoad({
+          elements_selector: ".lazy"
+        });
+
+// Jquery select
+        $('.custom_select select').niceSelect();
+
+        // Carousel single slide
+        $('.carousel_1').owlCarousel({
+          items: 1,
+          loop: false,
+          lazyLoad:true,
+          margin: 0,
+          dots:true,
+          nav:false
+        });
+
+        // Sticky nav
+        $(window).on('scroll', function () {
+          if ($(this).scrollTop() > 1) {
+            $('.element_to_stick').addClass("sticky");
+          } else {
+            $('.element_to_stick').removeClass("sticky");
+          }
+        });
+        $(window).scroll();
+
+        // Header background
+        $('.background-image').each(function(){
+          $(this).css('background-image', $(this).attr('data-background'));
+        });
+
+        // Rotate icons
+        $(".categories_carousel .item a").hover(
+          function(){$(this).find("i").toggleClass("rotate-x");}
+        );
+
+        // Menu
+        $('a.open_close').on("click", function () {
+          $('.main-menu').toggleClass('show');
+          $('.layer').toggleClass('layer-is-visible');
+        });
+        $('a.show-submenu').on("click", function () {
+          $(this).next().toggleClass("show_normal");
+        });
+
+        // Opacity mask
+        $('.opacity-mask').each(function(){
+          $(this).css('background-color', $(this).attr('data-opacity-mask'));
+        });
+
+        // Scroll to top
+        var pxShow = 800; // height on which the button will show
+        var scrollSpeed = 500; // how slow / fast you want the button to scroll to top.
+        $(window).scroll(function(){
+          if($(window).scrollTop() >= pxShow){
+            $("#toTop").addClass('visible');
+          } else {
+            $("#toTop").removeClass('visible');
+          }
+        });
+        $('#toTop').on('click', function(){
+          $('html, body').animate({scrollTop:0}, scrollSpeed);
+          return false;
+        });
+
+        //Footer collapse
+        var $headingFooter = $('footer h3');
+        $(window).resize(function() {
+          if($(window).width() <= 768) {
+            $headingFooter.attr("data-toggle","collapse");
+          } else {
+            $headingFooter.removeAttr("data-toggle","collapse");
+          }
+        }).resize();
+        $headingFooter.on("click", function () {
+          $(this).toggleClass('opened');
+        });
+
+        // Scroll to position
+        $('a[href^="#"].btn_scroll').on('click', function (e) {
+          e.preventDefault();
+          var target = this.hash;
+          var $target = $(target);
+          $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+          }, 800, 'swing', function () {
+            window.location.hash = target;
+          });
+        });
+
+        // Like Icon
+        $('.btn_hero.wishlist').on('click', function(e){
+          e.preventDefault();
+          $(this).toggleClass('liked');
+        });
+
+        // Modal Sign In
+        $('#sign-in').magnificPopup({
+          type: 'inline',
+          fixedContentPos: true,
+          fixedBgPos: true,
+          overflowY: 'auto',
+          closeBtnInside: true,
+          preloader: false,
+          midClick: true,
+          removalDelay: 300,
+          closeMarkup: '<button title="%title%" type="button" class="mfp-close"></button>',
+          mainClass: 'my-mfp-zoom-in'
+        });
+
+        // Show hide password
+        $('#password, #password_sign').hidePassword('focus', {
+          toggle: {
+            className: 'my-toggle'
+          }
+        });
+
+
+        /*$('.switch-field').on( 'click', 'input', 'change', function(){
+          var selector = $(this).attr('data-filter');
+          $('.isotope-wrapper').isotope({ filter: selector });
+        });*/
+
+      })(window.jQuery);
+    });
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBpHonl5qQcVTNm6aa1YFMTDyqRGvlw1M&libraries=places&language=en"></script>
+
+<!--  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>">-->
 </body>
 </html>

@@ -7,7 +7,30 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "inlineTemplate": true,
+          "inlineStyle": true,
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         }
       },
       "root": "",
@@ -28,16 +51,45 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/css/bootstrap_customized.min.css",
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
+              "node_modules/ng-uikit-pro-standard/assets/scss/bootstrap/bootstrap.scss",
+              "node_modules/ng-uikit-pro-standard/assets/scss/mdb.scss",
+              "node_modules/animate.css/animate.css",
+              "src/assets/css/style.css",
+              "src/assets/css/home.css",
+              "src/assets/css/custom.css",
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/common_scripts.js",
+              "./node_modules/owl.carousel/dist/owl.carousel.min.js",
+              "src/assets/js/common_func.js",
+              "src/assets/js/modernizr.min.js",
+              "src/assets/js/video_header.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/single_files/owl.carousel.js",
+              "src/assets/js/sticky_sidebar.min.js",
+              "./node_modules/css-element-queries/src/ResizeSensor.js",
+              "src/assets/js/specific_listing.js",
+              "src/assets/js/isotope.min.js",
+              "./node_modules/isotope-layout/dist/isotope.pkgd.js",
+              "src/assets/js/main_map_scripts.js",
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/easy-pie-chart/dist/easypiechart.js",
+              "node_modules/screenfull/dist/screenfull.js",
+              "node_modules/hammerjs/hammer.min.js"
+            ]
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "src/app/environments/environment.ts",
+                  "with": "src/app/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -52,12 +104,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 }
               ]
             }
@@ -92,9 +144,40 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/css/bootstrap_customized.min.css",
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
+              "node_modules/ng-uikit-pro-standard/assets/scss/bootstrap/bootstrap.scss",
+              "node_modules/ng-uikit-pro-standard/assets/scss/mdb.scss",
+              "node_modules/animate.css/animate.css",
+              "src/assets/css/style.css",
+              "src/assets/css/home.css",
+              "src/assets/css/custom.css",
+              "./node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "./node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/common_scripts.js",
+              "./node_modules/owl.carousel/dist/owl.carousel.min.js",
+              "src/assets/js/common_func.js",
+              "src/assets/js/modernizr.min.js",
+              "src/assets/js/video_header.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/single_files/owl.carousel.js",
+              "src/assets/js/sticky_sidebar.min.js",
+              "./node_modules/css-element-queries/src/ResizeSensor.js",
+              "src/assets/js/specific_listing.js",
+              "src/assets/js/isotope.min.js",
+              "src/assets/js/main_map_scripts.js",
+              "./node_modules/isotope-layout/dist/isotope.pkgd.js",
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/easy-pie-chart/dist/easypiechart.js",
+              "node_modules/screenfull/dist/screenfull.js",
+              "node_modules/hammerjs/hammer.min.js"
+            ]
           }
         },
         "lint": {
